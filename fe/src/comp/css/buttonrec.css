@@ -1,0 +1,8 @@
+.buttonrec{
+    background-color: grey;
+    padding:5px;
+    border-radius: 10px;
+}
+.buttonrec:hover{
+    /* background-image: linear-gradient(rgb(7, 29, 68),rgb(12, 16, 134),rgb(54, 157, 189)); */
+}

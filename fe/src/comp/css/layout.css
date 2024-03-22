@@ -1,0 +1,34 @@
+.navigation{
+    display:flex;
+    gap:10px;
+    
+}
+.welcometab{
+    background-color: aquamarine;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.navi{
+    padding:3px;
+    transition: 1s;
+}
+.navi:hover{
+    color:white;
+    background-image: linear-gradient(to right,rgb(35,44,56),rgb(42, 47, 112),rgb(13, 13, 217));
+    padding:3px;
+    border-radius:5px;
+}
+.profile{
+    position: absolute;
+    right:40px;
+    top:50px;
+}
+.profile-details{
+    display:flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+.profile:hover .profile-details{
+    visibility: visible;
+}

@@ -1,0 +1,19 @@
+.queries{
+    padding-top:10%;
+    padding-bottom: 12%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+}
+.query{
+    font-size:30px;
+    transition: 1s;
+}
+.query:hover{
+    color:white;
+    background-image: linear-gradient(to right,rgb(35,44,56),rgb(42, 47, 112),rgb(13, 13, 217));
+    padding:10px;
+    border-radius:10px;
+}

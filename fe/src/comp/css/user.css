@@ -1,0 +1,13 @@
+.profile{
+    position: absolute;
+    right:40px;
+    top:50px;
+}
+.profile-details{
+    display:flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+.profile:hover .profile-details{
+    visibility: visible;
+}
