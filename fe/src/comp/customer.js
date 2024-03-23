@@ -31,7 +31,7 @@ function Customer(props){
           .catch(error => {
             console.error('Error fetching data: ', error);
           });
-      });
+      },[]);
     function send(e){
         e.preventDefault();
         fetch("http://localhost:2000/customer",{
@@ -112,6 +112,7 @@ function Customer(props){
             </div>
             <button type="submit" className="login-btn" /* className="ticket-sub" */ onClick={send}>Submit</button>
         </form>
+    
             </div>
         </>
     )

@@ -89,10 +89,12 @@ app.get('/countcustomer',(req,res)=>{
 })
 app.post('/animalguideid',(req,res)=>{
     var {zid}=req.body;
+    console.log(zid);
     create.query('select gid from animalguide where zid=?',[zid],(err,result)=>{
         if(err) throw err;
         else{
             res.json(result);
+            console.log(result);
             /* console.log("sent updated gid"); */
         }
 

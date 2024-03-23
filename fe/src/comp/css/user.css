@@ -11,3 +11,20 @@
 .profile:hover .profile-details{
     visibility: visible;
 }
+.user-content{
+    display:flex;
+    justify-content:space-between;
+    height:100vh;
+    gap:5px;
+}
+.user-content>div{
+    border:solid 1px;
+}
+.ticket-entry{
+    position:absolute;
+    height:80vh;
+    width:80vh;
+    z-index:3;
+    border:1px;
+    background-color: yellow;
+}
