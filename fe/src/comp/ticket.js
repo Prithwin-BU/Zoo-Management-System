@@ -1,17 +1,13 @@
 import "./css/user.css";
 import { useState } from "react";
 function Ticket(props){
+    const [tvis,setTvis]=useState('');
     const[next,setNext]=useState(0);
-    function sample(){
-        return(
-            <div>hello</div>
-        )
-    }
     if(next===0){
     return(
         <>
-        <div class="ticket-entry" style={{"visibility":props.vis}}>
-            Welcome to Ticket Booking service.click on next to reserve your seat
+       <div>
+            Welcome to our Ticket Booking service.Click next to reserve your Entry
             <button onClick={()=>{setNext(next+1)}}>Next</button>
         </div>
         </>
@@ -19,7 +15,7 @@ function Ticket(props){
     if(next===1){
         return(
             <>
-            <div class="ticket-entry" style={{"visibility":props.vis}}>
+            <div>
                 1
             <button onClick={()=>{setNext(next+1)}}>Next</button>
             </div>
@@ -28,7 +24,7 @@ function Ticket(props){
         if(next===2){
             return(
                 <>
-                <div class="ticket-entry" style={{"visibility":props.vis}}>
+                <div>
                     2
                 <button onClick={()=>{setNext(next+1)}}>Next</button>
                 </div>
@@ -37,7 +33,7 @@ function Ticket(props){
             if(next===3){
                 return(
                     <>
-                    <div class="ticket-entry" style={{"visibility":props.vis}}>
+                    <div>
                         3
                     <button onClick={()=>{setNext(next+1)}}>Next</button>
                     </div>
@@ -46,11 +42,19 @@ function Ticket(props){
                 if(next===4){
                     return(
                         <>
-                        <div class="ticket-entry" style={{"visibility":props.vis}}>
+                        <div>
                             4
                         <button onClick={()=>{setNext(next+1)}}>Next</button>
                         </div>
                         </>
                     )}
+                    else{
+                        props.vis('hidden');
+                        return(
+                            <>
+                            
+                            </>
+                        )
+                    }
 }
 export default Ticket;

@@ -24,9 +24,11 @@ function Userportal(props){
         <section className="user-content">
             <div style={{"flex-grow":"1"}}>1st</div>
             <div style={{"flex-grow":"3","display":"flex","justify-content":"center"}} >2nd
-                <Ticket vis={tvis}/>
+            <div class="ticket-entry" style={{"visibility":tvis}}>
+                <Ticket vis={setTvis}/>
             </div>
-            <div style={{"flex-grow":"1"}}>3rd</div>
+            </div>
+            <div style={{"flex-grow":"1"}}>3rd{tvis}</div>
         </section>
         </>
     )
