@@ -1,4 +1,5 @@
-import "./css/user.css"
+import "./css/user.css";
+import Ticket from "./ticket";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react';
 function Userportal(props){
@@ -23,10 +24,7 @@ function Userportal(props){
         <section className="user-content">
             <div style={{"flex-grow":"1"}}>1st</div>
             <div style={{"flex-grow":"3","display":"flex","justify-content":"center"}} >2nd
-                <div class="ticket-entry" style={{"visibility":tvis}}>
-                    ticket entry
-                </div>
-            
+                <Ticket vis={tvis}/>
             </div>
             <div style={{"flex-grow":"1"}}>3rd</div>
         </section>

@@ -25,6 +25,7 @@
     height:80vh;
     width:80vh;
     z-index:3;
-    border:1px;
-    background-color: yellow;
+    border:solid 1px;
+    background-color: white;
+    
 }
