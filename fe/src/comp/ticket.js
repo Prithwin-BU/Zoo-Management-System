@@ -7,6 +7,8 @@ function Ticket(props){
     const [ticket,setTicket]=useState(0);
     const [adata,setAdata]=useState([]);
     const [gdata,setGdata]=useState([]);
+    const [vis,setVis]=useState(props.vis);
+    const[next,setNext]=useState(0);
     useEffect(()=>{
         fetch("http://localhost:2000/admin")
         .then(response=>{
@@ -60,19 +62,38 @@ function Ticket(props){
         amt*ticket
         )
     }
-    const[next,setNext]=useState(0);
+    function payment(){
+        setNext(next+1);
+        fetch('http://localhost:2000/ticket',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                cid:props.uid,
+                zid:aid,
+                gid:gid,
+                time:ctime,
+                ticket:ticket
+            })
+        })
+    }
+    
     if(next===0){
     return(
         <>
+        <div class="ticket-entry" style={{"visibility":props.vis}}>
        <div className="admin-container">
             Welcome to our Ticket Booking service.Click next to reserve your Entry
             <button onClick={()=>{setNext(next+1)}}>Next</button>
+        </div>
         </div>
         </>
     )}
     if(next===1){
         return(
             <>
+            <div class="ticket-entry" style={{"visibility":props.vis}}>
             <div className="admin-container">
                 <h1>Selected Your preffered Zoo</h1>
                 <div className="admin-select">
@@ -82,11 +103,13 @@ function Ticket(props){
                 </div>
             <button onClick={()=>{setNext(next+1)}}>Next</button>
             </div>
+            </div>
             </>
         )}
         if(next===2){
             return(
                 <>
+                <div class="ticket-entry" style={{"visibility":props.vis}}>
                 <div className="admin-container">
                    {aid} 
                     <h2>Select Animal guide</h2>
@@ -97,11 +120,13 @@ function Ticket(props){
                 </div> 
                 <button onClick={()=>{setNext(next+1)}}>Next</button>
                 </div>
+                </div>
                 </>
             )}
             if(next===3){
                 return(
                     <>
+                    <div class="ticket-entry" style={{"visibility":props.vis}}>
                     <div className="admin-container">
                         {gid}
                         <h2>Select your Preffered timings</h2>
@@ -112,11 +137,13 @@ function Ticket(props){
                         </div>
                     <button onClick={()=>{setNext(next+1)}}>Next</button>
                     </div>
+                    </div>
                     </>
                 )}
                 if(next===4){
                     return(
                         <>
+                        <div class="ticket-entry" style={{"visibility":props.vis}}>
                         {aid}
                         {gid}
                         {ctime}
@@ -126,15 +153,16 @@ function Ticket(props){
                         </input>
                         <label>Amount to be Paid</label>
                         {amount()}
-                        <button onClick={()=>{setNext(next+1)}}>Pay</button>
+                        <button onClick={()=>payment()}>Pay</button>
+                        </div>
                         </div>
                         </>
                     )}
                     else{
-                        props.vis('hidden'); 
+                        /* setNext(0); */
                         return(
                             <>
-                            
+                            <div class="ticket-entry" style={{"visibility":"hidden"}}></div>
                             </>
                         )
                     }

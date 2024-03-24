@@ -228,6 +228,16 @@ app.post('/animalguidedetails',(req,res)=>{
         }
     })
 })
+app.post('/ticket',(req,res)=>{
+    var {cid,zid,gid,time,ticket}=req.body;
+     create.query('update customer set gid=?,time=?,zid=?,ticket=? where cid=?',[gid,time,zid,ticket,cid],(err,result)=>{
+        if(err) console.log(err);
+        else{
+            res.status(200);
+        }
+     })
+      console.log(cid,zid,gid,time,ticket);
+})
 app.listen("2000",()=>{
     console.log("server listening on port 2000");
 })
