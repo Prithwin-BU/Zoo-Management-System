@@ -7,9 +7,10 @@ function Customer(props){
     const [address,setAddress]=useState('');
     const [phone,setPhone]=useState(0);
     const [gid,setGid]=useState([]);
-    const [sid,setsid]=useState();
+    const [sid,setSid]=useState();
     const [time,setTime]=useState('');
     const [vis,setVis]=useState('hidden');
+    const [ticket,setTicket]=useState(0);
     useEffect(()=>{
         fetch('http://localhost:2000/animalguideid',{
             method:"POST",
@@ -34,6 +35,10 @@ function Customer(props){
       },[]);
     function send(e){
         e.preventDefault();
+    setVis('visible');
+    };
+    function print(){
+        
         fetch("http://localhost:2000/customer",{
             method: 'POST',
             headers: {
@@ -46,16 +51,34 @@ function Customer(props){
                 phone:phone,
                 gid:sid,
                 time:time,
-                zid:props.aid
+                zid:props.aid,
+                ticket:ticket,
+                pass:name
             })
         })
-        .then(()=>{
-        console.log("request sent")
-    }).catch(err=>{
+        .then((response)=>{
+/*        if(!response.ok) console.log("error in data fetch")
+       else{ */
+    return response.json()
+        
+    })
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(err=>{
         console.error('error creating table',err);
     });
-    setVis('visible');
-    };
+        setVis('hidden');
+        /* fetch("http://localhost:2000/customerticket",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body:JSON.stringify({
+                
+            })
+        }) */
+    }
     return(
         <>
 <div class="login-container">
@@ -63,10 +86,12 @@ function Customer(props){
         <div className='ticket' style={{visibility:vis}}>
                 <h2>***Entry ticket***</h2>
                 <div>Customer Name:{name}</div>
+                <div>Guid ID:{sid}</div>
                 {/* <div >Date:{date}</div> */}
                 <div>Time:{time}</div>
-                <input type="number" placeholder='Enter number of Tickets'></input>
-                <input type="button" value="print" className='print' onClick={()=>setVis('hidden')}></input>
+                <input type="number" placeholder='Enter number of Tickets' onChange={(e)=>{setTicket(e.target.value)}}></input>
+                <div>Amount:{ticket * 70}</div>
+                <input type="button" value="print" className='print' onClick={()=>print()}></input>
 
             </div>
         <form>
@@ -92,7 +117,7 @@ function Customer(props){
             </div>
             <div class="form-group">
                 <label for="username">Animal Guide ID</label>
-                <select onChange={(e)=>setsid(e.target.value)}>
+                <select onChange={(e)=>setSid(e.target.value)}>
                  {gid.map(item => (
           <option>{item.gid}</option> // Assuming 'name' is one of the fields
         ))}  

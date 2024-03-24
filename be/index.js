@@ -24,12 +24,14 @@ app.post('/customer',(req,res)=>{
     const phone=req.body.phone;
     const gid=req.body.gid;
     const time=req.body.time;
-    const pass=req.body.password;
+    const pass=req.body.pass;
     const zid=req.body.zid;
-    create.query('insert into customer(cname,email,address,phone,gid,time,password,zid) values (?,?,?,?,?,?,?,?)',[name,email,address,phone,gid,time,pass,zid],(err)=>{
+    const ticket=req.body.ticket;
+    create.query('insert into customer(cname,email,address,phone,gid,time,password,zid,ticket) values (?,?,?,?,?,?,?,?,?)',[name,email,address,phone,gid,time,pass,zid,ticket],(err,result)=>{
         if (err) throw err;
         else{
             console.log("inserted one record into customer");
+            res.json(result);
         }
     })
 });
@@ -247,6 +249,15 @@ app.post('/customerid',(req,res)=>{
         else{
             res.status(200).json(result);
             console.log(result);
+        }
+    })
+})
+app.post('/customerticket',(req,res)=>{
+    var {cid,ticket}=req.body;
+    create,query('update customer set ticket=? where cid=?',[cid,ticket],(err,result)=>{
+        if(err) console.log(err);
+        else{
+            res.status(200).json(result);
         }
     })
 })
