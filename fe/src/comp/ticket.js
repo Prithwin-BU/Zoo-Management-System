@@ -1,12 +1,70 @@
 import "./css/user.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 function Ticket(props){
-    const [tvis,setTvis]=useState('');
+    const [aid,setAid]=useState(0);
+    const [gid,setGid]=useState(0)
+    const [ctime,setCtime]=useState('');
+    const [ticket,setTicket]=useState(0);
+    const [adata,setAdata]=useState([]);
+    const [gdata,setGdata]=useState([]);
+    useEffect(()=>{
+        fetch("http://localhost:2000/admin")
+        .then(response=>{
+            if(!response.ok) console.error('no response available')
+            else{
+        return response.json()}
+        })
+        .then(data=>{
+            console.log(data);
+            setAdata(data);
+        })
+        .catch(err=>{
+            console.error(err);
+        });
+        
+    },[]);
+    var timing=[
+        {time:"9:00AM to 12:00PM"},
+        {time:"12:00PM to 3:00PM"},
+        {time:"3:00PM to 6:00PM"}
+    ]
+    function admindata(id){
+        setAid(id);
+        fetch('http://localhost:2000/animalguidedetails',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                zid:id
+            })
+        })
+          .then(response => {
+            if(!response) console.error("cannot fetch data");
+            return response.json();
+          })
+          .then(data=>{
+            setGdata(data);
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('Error fetching data: ', error);
+          }); 
+        }
+    function animalguidedata(id){
+        setGid(id);
+    }
+    function amount(){
+        let amt=70;
+        return(
+        amt*ticket
+        )
+    }
     const[next,setNext]=useState(0);
     if(next===0){
     return(
         <>
-       <div>
+       <div className="admin-container">
             Welcome to our Ticket Booking service.Click next to reserve your Entry
             <button onClick={()=>{setNext(next+1)}}>Next</button>
         </div>
@@ -15,8 +73,13 @@ function Ticket(props){
     if(next===1){
         return(
             <>
-            <div>
-                1
+            <div className="admin-container">
+                <h1>Selected Your preffered Zoo</h1>
+                <div className="admin-select">
+                {adata.map(data=>(
+                    <div onClick={()=>admindata(data.aid)} className="admin-content">{data.aname}</div>
+                ))}
+                </div>
             <button onClick={()=>{setNext(next+1)}}>Next</button>
             </div>
             </>
@@ -24,8 +87,14 @@ function Ticket(props){
         if(next===2){
             return(
                 <>
-                <div>
-                    2
+                <div className="admin-container">
+                   {aid} 
+                    <h2>Select Animal guide</h2>
+                    <div className="admin-select">
+                {gdata.map(data=>(
+                    <div onClick={()=>animalguidedata(data.gid)} className="admin-content">{data.gname}</div>
+                ))}
+                </div> 
                 <button onClick={()=>{setNext(next+1)}}>Next</button>
                 </div>
                 </>
@@ -33,8 +102,14 @@ function Ticket(props){
             if(next===3){
                 return(
                     <>
-                    <div>
-                        3
+                    <div className="admin-container">
+                        {gid}
+                        <h2>Select your Preffered timings</h2>
+                        <div className="time">
+                            {timing.map(time=>(
+                                <div className="time-content" onClick={()=>setCtime(time.time)}>{time.time}</div>
+                            ))}
+                        </div>
                     <button onClick={()=>{setNext(next+1)}}>Next</button>
                     </div>
                     </>
@@ -42,14 +117,21 @@ function Ticket(props){
                 if(next===4){
                     return(
                         <>
-                        <div>
-                            4
-                        <button onClick={()=>{setNext(next+1)}}>Next</button>
+                        {aid}
+                        {gid}
+                        {ctime}
+                        <div className="admin-container">
+                        <h2>***PAYMENT***</h2>
+                        <label>Enter Number Of Tickets</label><input type="number" value={ticket} onChange={(e)=>{setTicket(e.target.value)}}>
+                        </input>
+                        <label>Amount to be Paid</label>
+                        {amount()}
+                        <button onClick={()=>{setNext(next+1)}}>Pay</button>
                         </div>
                         </>
                     )}
                     else{
-                        props.vis('hidden');
+                        props.vis('hidden'); 
                         return(
                             <>
                             

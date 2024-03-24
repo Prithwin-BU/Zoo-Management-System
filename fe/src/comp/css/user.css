@@ -22,10 +22,49 @@
 }
 .ticket-entry{
     position:absolute;
-    height:80vh;
-    width:80vh;
+    min-height:30vh;
+    min-width:50vh;
+    /* max-height:80vh;
+    max-width:80vh; */
     z-index:3;
     border:solid 1px;
     background-color: white;
+    /* overflow:auto; */
+    
+}
+.admin-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.admin-select{
+/*     height: inherit;
+    width:inherit; */
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    height:200px;
+    width:200px;
+    border:solid 2px;
+    overflow: auto;
+    justify-content: center;
+    
+}
+.admin-content{
+    height:50px;
+    width:70px;
+    border:solid 1px;
+}
+.time{
+/*     border:solid 1px;
+    padding:5px; */
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    gap:3px;
+}
+.time-content{
+    border:solid 1px;
     
 }

@@ -5,6 +5,9 @@ import {useState} from 'react';
 function Userportal(props){
     const[tvis,setTvis]=useState('hidden');
     const nav=useNavigate();
+    function visibility(data){
+        setTvis(data);
+    }
     return(
         <>
         <nav>
@@ -25,7 +28,7 @@ function Userportal(props){
             <div style={{"flex-grow":"1"}}>1st</div>
             <div style={{"flex-grow":"3","display":"flex","justify-content":"center"}} >2nd
             <div class="ticket-entry" style={{"visibility":tvis}}>
-                <Ticket vis={setTvis}/>
+                <Ticket vis={visibility}/>
             </div>
             </div>
             <div style={{"flex-grow":"1"}}>3rd{tvis}</div>

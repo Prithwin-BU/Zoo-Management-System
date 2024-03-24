@@ -210,6 +210,24 @@ app.post('/adminlogin',(req,res)=>{
 app.get('/cid',(req,res)=>{
     create.query('select cid from ')
 })
+app.get('/admin',(req,res)=>{
+    create.query("select * from admin",(err,result)=>{
+        if(err) console.log(err);
+        else{
+            res.status(200).json(result);
+        }
+    })
+})
+app.post('/animalguidedetails',(req,res)=>{
+    var zid=req.body.zid;
+    create.query("select * from animalguide where zid=?",[zid],(err,result)=>{
+        if(err) console.log(err);
+        else{
+            res.status(200).json(result);
+            console.log(result);
+        }
+    })
+})
 app.listen("2000",()=>{
     console.log("server listening on port 2000");
 })
