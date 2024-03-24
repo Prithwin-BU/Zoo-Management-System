@@ -24,10 +24,10 @@ app.post('/customer',(req,res)=>{
     const phone=req.body.phone;
     const gid=req.body.gid;
     const time=req.body.time;
-    const pass=req.body.pass;
+    const password=req.body.password;
     const zid=req.body.zid;
     const ticket=req.body.ticket;
-    create.query('insert into customer(cname,email,address,phone,gid,time,password,zid,ticket) values (?,?,?,?,?,?,?,?,?)',[name,email,address,phone,gid,time,pass,zid,ticket],(err,result)=>{
+    create.query('insert into customer(cname,email,address,phone,gid,time,password,zid,ticket) values (?,?,?,?,?,?,?,?,?)',[name,email,address,phone,gid,time,password,zid,ticket],(err,result)=>{
         if (err) throw err;
         else{
             console.log("inserted one record into customer");
@@ -174,6 +174,7 @@ app.post('/fetchcustomer',(req,res)=>{
 })
 app.post('/login',(req,res)=>{
     var {username,password}=req.body;
+    console.log(username,password);
     /* var passs=req.body.password; */
     /* console.log(usern); */
    /*  console.log(passw); */
