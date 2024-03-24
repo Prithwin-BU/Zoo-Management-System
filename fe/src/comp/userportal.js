@@ -73,6 +73,7 @@ function Userportal(props){
                 <div>Zoo ID:{zid}</div>
                 <div>Guide ID:{gid}</div>
                 <div>Entry Time:{time}</div>
+                <div>Number of Tickets:{ticket}</div>
             <button onClick={()=>{setVTicket('hidden')}}>Ok</button>
             </div>
         

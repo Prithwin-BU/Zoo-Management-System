@@ -74,7 +74,7 @@ return(
                     <th>Contact</th>
                     <th>Address</th>
                     <th>Guide ID</th>
-                    <th>Delete Record</th>
+                    <th>view Ticket</th>
                 </thead>
                 <tbody>
                     {rec.map(recs=>(
@@ -103,7 +103,7 @@ return(
                     <th>Contact</th>
                     <th>Address</th>
                     <th>Guide ID</th>
-                    <th>Delete Record</th>
+                    <th>View Ticket</th>
                 </thead>
                 <tbody>
                     {data.map(recs=>(
