@@ -238,6 +238,18 @@ app.post('/ticket',(req,res)=>{
      })
       console.log(cid,zid,gid,time,ticket);
 })
+app.post('/customerid',(req,res)=>{
+    console.log('hello');
+    var cid=req.body.cid;
+    console.log(cid);
+    create.query('select * from customer where cid=?',[cid],(err,result)=>{
+        if(err) console.log(err);
+        else{
+            res.status(200).json(result);
+            console.log(result);
+        }
+    })
+})
 app.listen("2000",()=>{
     console.log("server listening on port 2000");
 })

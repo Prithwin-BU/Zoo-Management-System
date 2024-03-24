@@ -7,7 +7,7 @@ function Ticket(props){
     const [ticket,setTicket]=useState(0);
     const [adata,setAdata]=useState([]);
     const [gdata,setGdata]=useState([]);
-    const [vis,setVis]=useState(props.vis);
+    const [vis,setVis]=useState();
     const[next,setNext]=useState(0);
     useEffect(()=>{
         fetch("http://localhost:2000/admin")
@@ -22,9 +22,30 @@ function Ticket(props){
         })
         .catch(err=>{
             console.error(err);
-        });
-        
+        })
     },[]);
+    useEffect(()=>{
+        fetch("http://localhost:2000/customerid",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                cid:props.uid
+            })
+        })
+        .then((response)=>{
+            if(!response.ok) console.log("no response");
+            else{
+                return response.json();
+            }
+        })
+        .then(data=>{
+            console.log(data[0].ticket);
+        })
+        .catch(err=>{
+            console.log(err);        })
+    },[])
     var timing=[
         {time:"9:00AM to 12:00PM"},
         {time:"12:00PM to 3:00PM"},
@@ -47,7 +68,7 @@ function Ticket(props){
           })
           .then(data=>{
             setGdata(data);
-            console.log(data);
+            console.log(data); 
           })
           .catch(error => {
             console.error('Error fetching data: ', error);
@@ -62,8 +83,11 @@ function Ticket(props){
         amt*ticket
         )
     }
-    function payment(){
-        setNext(next+1);
+/*     var display=props.vis;
+ */    function payment(){
+        setNext(next+1)
+        
+ setVis('hidden');
         fetch('http://localhost:2000/ticket',{
             method:"POST",
             headers:{
@@ -144,9 +168,6 @@ function Ticket(props){
                     return(
                         <>
                         <div class="ticket-entry" style={{"visibility":props.vis}}>
-                        {aid}
-                        {gid}
-                        {ctime}
                         <div className="admin-container">
                         <h2>***PAYMENT***</h2>
                         <label>Enter Number Of Tickets</label><input type="number" value={ticket} onChange={(e)=>{setTicket(e.target.value)}}>
