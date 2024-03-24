@@ -5,6 +5,7 @@ function Zoo(){
     const [contact,setContact]=useState('');
     const [location,setLocation]=useState(''); 
     function send(){
+        
         fetch("http://localhost:2000/zoo",{
             method: 'POST',
             headers: {

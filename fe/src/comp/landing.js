@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import './css/landing.css'
 function Landing(){
     const nav=useNavigate();
     return(
         <>
-        <h1>landing page</h1>
-        <input type="button" value="Admin Login" onClick={()=>{nav('/adminlogin')}}></input>
-        <input type="button" value="User Login"onClick={()=>{nav('/user')}}></input>
+        <div className="landing-container">
+        <div className="Admin-Login" onClick={()=>{nav('/adminlogin')}}>Admin</div>
+        <div  className="User-Login" onClick={()=>{nav('/user')}}>User</div>
+        </div>
         </>
     )
 }

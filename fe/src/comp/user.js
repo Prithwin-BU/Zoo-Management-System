@@ -103,9 +103,9 @@ function User(props){
    
     return(
         <>
-        <div>
+        <div className="admin-outer">
             {login===true?
-            (<>
+            (<><div className="adminlogin-container">
                 <input type="text" placeholder="Enter UserName" onChange={(e)=>{setName(e.target.value)}}></input>
                 <input type="text" placeholder="Enter Email ID" onChange={(e)=>{setEmail(e.target.value)}}></input>
                 <input type="text" placeholder="Enter Phone Number" onChange={(e)=>{setPhone(e.target.value)}}></input>
@@ -114,14 +114,16 @@ function User(props){
                 <input type="button" onClick={register} value="Register"></input>
                 
                 <div onClick={()=>{setLogin(false)}}><u>Already have an account?Login</u></div>
+                </div>
                 </>)
             :
             (   
-                <>
+                <><div className="adminlogin-container">
                 <input type="text" placeholder="Enter UserName" onChange={(e)=>setName(e.target.value)}></input>
                 <input type="text" placeholder="Enter your password" onChange={(e)=>setPass(e.target.value)}></input>
                 <button onClick={loginuser}>Login</button>
                 <div onClick={()=>{setLogin(true)}}><u>New User?Create Your Account</u></div>
+                </div>
                 </>)}
         </div>
         </>

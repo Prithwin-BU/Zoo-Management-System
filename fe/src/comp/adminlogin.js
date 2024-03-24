@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import './css/adminlogin.css';
 function Adminlogin(props){
     const [login,setLogin]=useState(true);
     const [name,setName]=useState('');
@@ -77,8 +78,9 @@ function Adminlogin(props){
     }
     return(
         <>
+        <div className="admin-outer">
         {login===false?
-        (<div>
+        (<div className="adminlogin-container">
         <h1>Register as New Admin</h1>
         <input type="text" placeholder="Enter Admin Name" onChange={(e)=>setName(e.target.value)}></input>
         <input type="text" placeholder="Enter Location"onChange={(e)=>setLoc(e.target.value)}></input>
@@ -89,7 +91,7 @@ function Adminlogin(props){
         <p onClick={()=>{setLogin(true)}}><u>ALready registered as Admin?Login</u></p>
         {/* <button onClick={()=>{nav('/admin')}}>navigate to admin page</button> */}
         </div>):
-        (<div>
+        (<div className="adminlogin-container">
             <h1>Login as Admin</h1>
             <input type="text" placeholder="Enter Admin Name" onChange={(e)=>setName(e.target.value)}></input>
             <input type="text" placeholder="Enter Password" onChange={(e)=>setPass(e.target.value)}></input>
@@ -97,6 +99,7 @@ function Adminlogin(props){
             <p onClick={()=>{setLogin(false)}}><u>Register as New Admin?Click Here</u></p>
         </div>)
         }
+        </div>
         </>
     )
 }

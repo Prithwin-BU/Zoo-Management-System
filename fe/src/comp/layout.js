@@ -6,14 +6,14 @@ function Layout(props){
     return(
         <>
         <div className='welcometab'>
-           <div className='profile'>profile
-           <div className='profile-details'>
-           <div>{props.id}</div>
-           <div>{props.name}</div>
-           <div>{props.loc}</div>
-           <div>{props.email}</div>
-           <div>{props.phone}</div>
-           <div onClick={()=>{nav('/')}}>Logout</div>
+           <div className='profile'>Profile
+           <div className='profile-container'>
+           <div className="profile-details">Admin ID:{props.id}</div>
+           <div className="profile-details">Admin Name:{props.name}</div>
+           <div className="profile-details">Location:{props.loc}</div>
+           <div className="profile-details">Email:{props.email}</div>
+           <div className="profile-details">Contact:{props.phone}</div>
+           <div className="profile-details" onClick={()=>{nav('/')}} style={{border:"solid 1px",padding:"3px"}}>Logout</div>
             </div>
             </div> 
             <center>
@@ -22,7 +22,7 @@ function Layout(props){
         <nav className='navigation'>
             <Link to="/admin"><div className='navi'>Home</div></Link>
            <Link to="/admin/customer"><div className='navi'>Customer Details</div></Link>
-            <Link to="/admin/zoo"><div className='navi'>Zoo Details</div></Link>
+            {/* <Link to="/admin/zoo"><div className='navi'>Zoo Details</div></Link> */}
              <Link to="/admin/animalguide"><div className='navi'>Animal Guide</div></Link>
             <Link to="/admin/animal"><div className='navi'>Animal</div></Link>
             <Link to="/admin/employee"><div className='navi'>Employee Details</div></Link>

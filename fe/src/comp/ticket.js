@@ -87,7 +87,7 @@ function Ticket(props){
         <>
         <div class="ticket-entry" style={{"visibility":props.vis}}>
        <div className="admin-container">
-            Welcome to our Ticket Booking service.Click next to reserve your Entry
+            Welcome to our Ticket Booking service.Click next to Book your ticket
             <button onClick={()=>{setNext(next+1)}}>Next</button>
         </div>
         </div>
@@ -98,7 +98,7 @@ function Ticket(props){
             <>
             <div class="ticket-entry" style={{"visibility":props.vis}}>
             <div className="admin-container">
-                <h1>Selected Your preffered Zoo</h1>
+                <h1>Select Zoo</h1>
                 <div className="admin-select">
                 {adata.map(data=>(
                     <div onClick={()=>admindata(data.aid)} className="admin-content">{data.aname}</div>
@@ -114,11 +114,11 @@ function Ticket(props){
                 <>
                 <div class="ticket-entry" style={{"visibility":props.vis}}>
                 <div className="admin-container">
-                   {aid} 
+                   
                     <h2>Select Animal guide</h2>
-                    <div className="admin-select">
+                    <div className="admin-select-guide">
                 {gdata.map(data=>(
-                    <div onClick={()=>animalguidedata(data.gid)} className="admin-content">{data.gname}</div>
+                    <div onClick={()=>animalguidedata(data.gid)} className="admin-content"><center>{data.gname}</center></div>
                 ))}
                 </div> 
                 <button onClick={()=>{setNext(next+1)}}>Next</button>
@@ -131,8 +131,8 @@ function Ticket(props){
                     <>
                     <div class="ticket-entry" style={{"visibility":props.vis}}>
                     <div className="admin-container">
-                        {gid}
-                        <h2>Select your Preffered timings</h2>
+                        
+                        <h2>Select Entry Time</h2>
                         <div className="time">
                             {timing.map(time=>(
                                 <div className="time-content" onClick={()=>setCtime(time.time)}>{time.time}</div>
