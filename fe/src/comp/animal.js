@@ -28,7 +28,7 @@ function Animal(props){
           .catch(error => {
             console.error('Error fetching data: ', error);
           });
-      });
+      },[]);
     function send(e){
         e.preventDefault();
         fetch('http://localhost:2000/animal',{
@@ -67,7 +67,7 @@ function Animal(props){
             </div>
             <div class="form-group">
                 <label for="username">Feed time:</label>
-                <input type="time" id="feedtime" placeholder="" onChange={(e)=>setTime(e.target.value)} required></input>
+                <input type="text" id="feedtime" placeholder="" onChange={(e)=>setTime(e.target.value)} required></input>
             </div>
             <div class="form-group">
                 <label for="username">Cage number:</label>

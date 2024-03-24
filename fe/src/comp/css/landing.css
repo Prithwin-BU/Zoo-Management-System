@@ -1,0 +1,23 @@
+.landing-container{
+    height: 100vh;
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+/*      background-image: url(https://media.istockphoto.com/id/511119924/photo/tea-plantations-and-river-in-hills-kerala-india.jpg?b=1&s=612x612&w=0&k=20&c=Fk9qQ_WIO_SzqRZOQhvbmf0qdVIHO9_le66XYibmlRc=);
+ */
+ background-color: antiquewhite;
+   background-size:cover;
+} 
+.landing-container> div{
+    border:solid 1px;
+    border-radius:100%;
+    padding:4%;
+    background-image: linear-gradient(rgb(13, 26, 66),rgb(41, 79, 137),rgb(18, 114, 138));
+}
+.landing-container>div:hover{
+    background-image:  linear-gradient(rgb(18, 114, 138),rgb(41, 79, 137),rgb(13, 26, 66));
+}
+

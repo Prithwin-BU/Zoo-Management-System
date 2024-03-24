@@ -4,11 +4,21 @@
     top:50px;
 }
 .profile-details{
+   border-radius:20px;
+}
+.profile-details:hover{
+    background-color: bisque;
+}
+.profile-container{
+    padding:10px;
     display:flex;
     flex-direction: column;
+    border:solid 1px;
+    border-radius:20px;
     visibility: hidden;
+    background-color: white;
 }
-.profile:hover .profile-details{
+.profile:hover .profile-container{
     visibility: visible;
 }
 .user-content{
@@ -22,13 +32,14 @@
 }
 .ticket-entry{
     position:absolute;
-    min-height:30vh;
     min-width:50vh;
     /* max-height:80vh;
     max-width:80vh; */
     z-index:3;
     border:solid 1px;
     background-color: white;
+    border-radius:20px;
+    padding:20px;
     /* overflow:auto; */
     
 }
@@ -42,6 +53,7 @@
 /*     height: inherit;
     width:inherit; */
     display:flex;
+    gap:3px;
     flex-direction:row;
     flex-wrap: wrap;
     height:200px;
@@ -49,12 +61,35 @@
     border:solid 2px;
     overflow: auto;
     justify-content: center;
-    
+    border-radius:20px;
+    padding:20px;
+}
+.admin-select-guide{
+    display:flex;
+    gap:3px;
+    flex-direction:row;
+    flex-wrap: wrap;
+    min-height:100px;
+    min-width:200px;
+    border:solid 2px;
+    overflow: auto;
+    justify-content: center;
+    border-radius:20px;
+    padding:20px;
 }
 .admin-content{
     height:50px;
     width:70px;
     border:solid 1px;
+    border-radius:20px;
+    padding:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+}
+.admin-content:hover{
+    background-color:blanchedalmond;
 }
 .time{
 /*     border:solid 1px;
@@ -66,7 +101,12 @@
 }
 .time-content{
     border:solid 1px;
-    
+    border-radius:20px;
+    padding:5px;
+    background-color:beige;
+}
+.time-content:hover{
+    background-color: bisque;
 }
 .view-ticket{
     position:absolute;
@@ -76,4 +116,67 @@
     display:flex;
     flex-direction:column;
     gap:3px;
+}
+.userportal-nav{
+    margin:0px;
+    background-image: url(https://media.istockphoto.com/id/495508534/photo/aerial-view-on-spacious-pine-forest-at-sunrise.jpg?b=1&s=612x612&w=0&k=20&c=1qWx8NtO1ORbyUgeZF9ikXgmN5aEV_eCWFKxG_49-W0=);
+}
+.book-ticket{
+/*     border:solid 1px;
+    border-radius:20px;
+    background-color: rgb(96, 60, 241); */
+    display:flex;
+    justify-content: center;
+
+}
+.userportal-ticket{
+    border:solid 1px;
+    border-radius:20px;
+    background-color: rgb(114, 92, 201); 
+    padding:5px;
+}
+.userportal-ticket:hover{
+    cursor:pointer;
+    background-color: rgb(23, 25, 168);
+}
+.first-container{
+    display:flex;
+    flex-direction: column;
+}
+.first-container >div{
+    width:300.587px;
+    height:215.587px;
+    border:solid 1px;
+}
+.first{
+    background-image: url(https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+.second{
+    background-image: url(https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+.third{
+    background-image:url(https://images.pexels.com/photos/53581/bald-eagles-bald-eagle-bird-of-prey-adler-53581.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+.fourth{
+    background-image:url(https://images.pexels.com/photos/631292/pexels-photo-631292.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+.fifth{
+    background-image:url(https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+.sixth{
+    background-image:url(https://images.pexels.com/photos/2361/nature-animal-wolf-wilderness.jpg?auto=compress&cs=tinysrgb&w=600);
+    background-size: cover;
+}
+ol{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+}
+li{
+    font-size:20px;
 }

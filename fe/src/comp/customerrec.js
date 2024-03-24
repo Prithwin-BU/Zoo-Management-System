@@ -74,7 +74,7 @@ return(
                     <th>Contact</th>
                     <th>Address</th>
                     <th>Guide ID</th>
-                    <th>view Ticket</th>
+                    
                 </thead>
                 <tbody>
                     {rec.map(recs=>(
@@ -85,7 +85,6 @@ return(
                             <td>{recs.phone}</td>
                             <td>{recs.address}</td>
                             <td>{recs.gid}</td>
-                            <td><button value={recs.cid} /* onClick={(e)=>Delete(e.target.value)} */>Delete Entry</button></td>
                         </tr>
                     ))}
                 </tbody>
@@ -103,7 +102,6 @@ return(
                     <th>Contact</th>
                     <th>Address</th>
                     <th>Guide ID</th>
-                    <th>View Ticket</th>
                 </thead>
                 <tbody>
                     {data.map(recs=>(

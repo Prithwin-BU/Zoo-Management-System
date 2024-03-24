@@ -54,7 +54,7 @@ function App() {
                   <Route index element={<Home />} />
                   <Route path="employee" element={<Employee aid={aid}/>}/> 
                   <Route path="customer" element={<Customer aid={aid}/>}/>
-                  <Route path="zoo" element={<Zoo aid={aid}/>} /> 
+                  {/* <Route path="zoo" element={<Zoo aid={aid}/>} /> */} 
                   <Route path="animalguide" element={<Animalguide aid={aid}/>}/>
                   <Route path="animal" element={<Animal aid={aid}/>}/>
                   <Route path="query" element={<Query/>}/>
