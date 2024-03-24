@@ -53,7 +53,7 @@ function Customer(props){
                 time:time,
                 zid:props.aid,
                 ticket:ticket,
-                pass:name
+                password:name
             })
         })
         .then((response)=>{
