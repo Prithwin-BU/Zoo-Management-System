@@ -7,8 +7,8 @@ function Ticket(props){
     const [ticket,setTicket]=useState(0);
     const [adata,setAdata]=useState([]);
     const [gdata,setGdata]=useState([]);
-    const [vis,setVis]=useState();
-    const[next,setNext]=useState(0);
+     const [vis,setVis]=useState();
+       const[next,setNext]=useState(0);
     useEffect(()=>{
         fetch("http://localhost:2000/admin")
         .then(response=>{
