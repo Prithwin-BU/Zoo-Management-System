@@ -11,7 +11,9 @@ function Userportal(props){
     const [gid,setGid]=useState(0);
     const [time,setTime]=useState('');
     const [zid,setZid]=useState(0);
-
+/*     useEffect(()=>{
+        console.log(tvis)
+    },tvis) */
     useEffect(()=>{
         fetch("http://localhost:2000/customerid",{
             method:"POST",
@@ -44,6 +46,9 @@ function Userportal(props){
     function visibility(data){
         setTvis(data);
     }
+    function Updateticket(t){
+        setTicket(t);
+    }
     return(
         <>
         <div className="userportal-nav">
@@ -74,7 +79,7 @@ function Userportal(props){
                 <div className="third"></div>
                 </div>
             <div style={{"flex-grow":"1","display":"flex","justify-content":"center"}} >
-                <Ticket key="ticket" vis={tvis} uid={props.id}/>
+                <Ticket key="ticket" vis={tvis} uid={props.id} updateticket={Updateticket} visible={()=>setTvis}/>
                 {/* <Viewticket vis={vticket}/> */}
                 <div className="view-ticket" style={{"visibility":vticket}}>
                 <div>Customer ID:{cid}</div>

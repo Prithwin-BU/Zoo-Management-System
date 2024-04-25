@@ -65,7 +65,8 @@ function Ticket(props){
 /*     var display=props.vis;
  */    function payment(){
         setNext(next+1)
-        
+        props.updateticket(ticket);
+        props.visible('hidden')
  setVis('hidden');
         fetch('http://localhost:2000/ticket',{
             method:"POST",
@@ -158,13 +159,13 @@ function Ticket(props){
                         </div>
                         </>
                     )}
-                    else{
-                        /* setNext(0); */
+                    /* else{
+                       
                         return(
                             <>
                             <div class="ticket-entry" style={{"visibility":"hidden"}}></div>
-                            </>
+                            </> 
                         )
-                    }
+                    } */
 }
 export default Ticket;
