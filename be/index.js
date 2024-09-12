@@ -5,7 +5,7 @@ const cors=require('cors');
 const sql=require('mysql');
 const adminrouter=express.Router();
 const create=sql.createConnection({
-    host:"localhost",
+    host:"host.docker.internal",//localhost//
     user:"root",
     password:"ramesh",
     database:"zoo"
@@ -17,6 +17,14 @@ create.connect((err)=>{
 })
 app.use(cors());
 app.use(bodyparse.json());
+
+//servertest
+app.get('/test',(req,res)=>{
+    console.log("server working fine");
+    res.send("server working fine");
+})
+//
+
 app.post('/customer',(req,res)=>{
     const name=req.body.name;
     const email=req.body.email;
