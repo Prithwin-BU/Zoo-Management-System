@@ -17,4 +17,6 @@ can also book tickets </p>
   <li>Express.js</li>
   <li>MariaDB</li>
   <li>Git</li>
+  <li>Docker</li>
+  <li>K8s</li>
 </ul>
