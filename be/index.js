@@ -5,7 +5,7 @@ const cors=require('cors');
 const sql=require('mysql');
 const adminrouter=express.Router();
 const create=sql.createConnection({
-    host:"host.docker.internal",//localhost//
+    host:/*"host.docker.internal",*/"localhost",
     user:"root",
     password:"ramesh",
     database:"zoo"

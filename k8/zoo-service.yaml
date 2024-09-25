@@ -5,7 +5,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector: 
-      app: zoo-be-app
+      app: zoo-pod
   ports:
     - protocol: TCP
       name: fe
