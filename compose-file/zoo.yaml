@@ -1,0 +1,16 @@
+version: "3"
+services:
+  frontend:
+    image: rameshll/zoo-fe:v2
+    container_name: zoo-fe
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - backend
+  backend:
+    image: rameshll/zoo-be:v1
+    container_name: zoo-be
+    ports:
+      - "2000:2000"
+    
+  
